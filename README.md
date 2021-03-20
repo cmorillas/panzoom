@@ -1,5 +1,7 @@
-## Welcome to GitHub Pages
+# Panzoom
+A small library to add as simple as possible panning and zooming functionality to any DOM element. Including cascading containers.
 
+## Demos
 You can use the [editor on GitHub](https://github.com/cmorillas/test/edit/main/README.md) to maintains and preview the content for your website in Markdown files.
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
