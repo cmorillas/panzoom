@@ -1,6 +1,3 @@
-"use strict";
-
-let status; 
 export const panzoom = (selector, options={}) => {
 	
 	// Default Parameters
@@ -45,7 +42,6 @@ export const panzoom = (selector, options={}) => {
 			//elem.addEventListener("gotpointercapture", handle_gotpointercapture);	// Not needed for now
 		}			
 	});
-	
 
 	function normalize(elem) {
 		const width = elem.offsetWidth;
@@ -53,6 +49,7 @@ export const panzoom = (selector, options={}) => {
 		const height = elem.offsetHeight;
 		const heightp = elem.parentNode.offsetHeight;
 
+		if(width>widthp)
 		if(bound=="inner" && (width>widthp || height>heightp)) {
 			console.error("panzoom() error: In the 'inner' mode, with or height must be smaller than its container (parent)");
 			return false;
@@ -62,8 +59,8 @@ export const panzoom = (selector, options={}) => {
 			return false;	
 		}
 
-		const {x:x, y:y, width:bwidth, height:bheight} = elem.getBoundingClientRect();
-		const {x:px, y:py, width:bpwidth, height:bpheight} = elem.parentNode.getBoundingClientRect();
+		//const {x:x, y:y, width:bwidth, height:bheight} = elem.getBoundingClientRect();
+		//const {x:px, y:py, width:bpwidth, height:bpheight} = elem.parentNode.getBoundingClientRect();
 		
 		/* Incomplete conditionals
 		if(bound=="inner" && (elem.offsetX<0 || elem.offsetX+width>elem.parentNode.offsetWidth )) { //|| y<py || y>py-bheight)) {
@@ -173,11 +170,17 @@ export const panzoom = (selector, options={}) => {
 		const scale = scaleX;
 	
 		// Set Position Bounds
-		if(bound != 'none') {
+		if(bound == 'inner') {
 			posX_min = e.target.offsetWidth/2*(scale-1)-translateX;
 			posY_min = e.target.offsetHeight/2*(scale-1)-translateY;
 			posX_max = e.target.parentNode.offsetWidth-e.target.offsetWidth-e.target.offsetWidth/2*(scale-1)-translateX;
 			posY_max = e.target.parentNode.offsetHeight-e.target.offsetHeight-e.target.offsetHeight/2*(scale-1)-translateY;
+		}
+		else if(bound == 'outer') {
+			posX_max = e.target.offsetWidth/2*(scale-1)-translateX;
+			posY_max = e.target.offsetHeight/2*(scale-1)-translateY;
+			posX_min = e.target.parentNode.offsetWidth-e.target.offsetWidth-e.target.offsetWidth/2*(scale-1)-translateX;
+			posY_min = e.target.parentNode.offsetHeight-e.target.offsetHeight-e.target.offsetHeight/2*(scale-1)-translateY;
 		}
 	
 		const {x:px1, y:py1, width:pwidth1, height:pheight1} = e.target.parentNode.getBoundingClientRect();
@@ -206,11 +209,11 @@ export const panzoom = (selector, options={}) => {
 			//e.target.releasePointerCapture(e.pointerId);
 		//}
 
-		if(bound != 'none') {
+		if(bound !== 'none') {
 			lastPosX = Math.min(Math.max(posX_min, lastPosX), posX_max);	// Restrict Pos X
 			lastPosY = Math.min(Math.max(posY_min, lastPosY), posY_max);	// Restrict Pos Y	
-		}		
-
+		}
+		
 		e.target.style.left =  lastPosX + 'px';
 		e.target.style.top =  lastPosY + 'px';
 	}
@@ -275,6 +278,3 @@ export const panzoom = (selector, options={}) => {
 
 	return (true);
 };
-
-
-
