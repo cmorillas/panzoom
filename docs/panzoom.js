@@ -6,7 +6,7 @@ export const panzoom = (selector, options={}) => {
 	const bound = (['inner','outer','none'].includes(options.bound)) ? options.bound : 'inner';
 	const wheel_step = (options.wheel_step>0.01 && options.wheel_step<4) ? options.wheel_step : 0.2;
 	const scale_min = (options.scale_min>0.01 && options.scale_min<20) ? options.scale_min : 0.01;
-	const scale_max = (options.scale_max>0.01 && options.scale_max<20) ? ( (options.scale_max>scale_min) ? options.scale_max : scale_min ) : 0.5;
+	const scale_max = (options.scale_max>0.01 && options.scale_max<20) ? ( (options.scale_max>scale_min) ? options.scale_max : scale_min ) : 10;
 	
 	// For panning (translate)
 	let lastPosX, lastPosY;					// Needed because of decimals 

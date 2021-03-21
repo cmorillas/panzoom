@@ -18,19 +18,19 @@
 	<p>You can see the main page usage instructions <a href="https://github.com/cmorillas/panzoom">here</a></p>
 	<h2>Example 1</h2>
 	<h3>Simple pan and zoom without bounds</h3>
-	<p>The container has style with position:absolute; overflow:hidden</p>
+	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
 	<pre style="width:200px"><code>
 panzoom('#element', {
    bound: 'none'
 });
 	</code></pre>
-	<div id="container1" style="width:400px; height:200px; background-color:green; position:absolute; overflow:hidden">
+	<div id="container1" style="width:400px; height:200px; background-color:green; position:relative; overflow:hidden">
 		<div id="element1" style="width:50px; height:50px; background-color:red"></div>
 	</div>
 
 	<h2>Example 2</h2>
 	<h3>Simple pan and zoom with inner bounds</h3>
-	<p>The container has style with position:absolute; overflow:hidden</p>
+	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
 	<pre style="width:200px"><code>
 panzoom('#element', {
    bound: 'inner'
