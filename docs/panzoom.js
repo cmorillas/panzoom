@@ -23,7 +23,7 @@ export const panzoom = (selector, options={}) => {
 		let isValid = normalize(elem);
 		if(!isValid) return;
 		if(zoom) {
-			elem.addEventListener("wheel", handle_wheel, {passive:true});
+			elem.addEventListener("wheel", handle_wheel, {passive:false});
 		} 
 		if(pan) {
 			// Touch events, needed for pinch/zoom 
