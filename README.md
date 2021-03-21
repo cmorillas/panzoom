@@ -5,7 +5,7 @@ A small ES6 module to add simple panning and zooming functionality to any DOM el
 ## Demos
 You can see here some [demos](https://cmorillas.github.io/panzoom/).
 
-## Usage
+## Installation
 Import from an ES6 module and initialize after DOMContentLoaded event.
 ```html
 <script type="module">
@@ -15,9 +15,22 @@ Import from an ES6 module and initialize after DOMContentLoaded event.
   });
 </script>
 ```
-## Options
-`PanzoomOptions`
-panzoom(
+## Usage
+panzoom(`Selector`, `Options`);
+| Parameter | Type | Description |
+| :---        |:---    |:--- |
+| `Selector` | String | [CSS Selector](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors) |
+| `Options` | Object | Initialization options |
+
+### Options
+| Name | Possible Values | Default Value | Description |
+| :--- |:---: |:---: |:---|
+| `pan` | true \| false | true | do panning |
+| `zoom` | true \| false | true | do Zooming |
+| `bound` | 'inner' \| 'outer' \| 'none' | 'inner' | containment whitin the parent container |
+| `wheel_step` | 0.01 - 0.4 | 0.2 | mouse wheel speed |
+| `scale_min` | 0.01 - 20 | 0.01 | minimum zoom |
+| `scale_max` | 0.01 - 20 | 0.01 | maximum zoom |
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
