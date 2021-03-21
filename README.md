@@ -2,8 +2,6 @@
 
 A small ES6 module to add simple panning and zooming functionality to any DOM element. It Includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices.
 
----
-
 ## Demos
 You can see here some [demos](https://cmorillas.github.io/panzoom/).
 
