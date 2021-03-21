@@ -1,7 +1,20 @@
 <!DOCTYPE html>
 <html>
+<head>
+	<script type="module">
+  import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+  document.addEventListener("DOMContentLoaded", (e) => {
+    panzoom('#element');
+  });
+</script>
+</head>
 <body>
-<h1>Hello World Cesar</h1>
-<p>I'm hosted with GitHub Pages.</p>
+	# Panzoom [![version](https://img.shields.io/badge/version-0.9-yellow.svg)](https://semver.org)
+
+A small ES6 module to add simple panning and zooming functionality to any DOM element. It Includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.
+
+## Demos
+You can see here some [demos](https://cmorillas.github.io/panzoom/).
+
 </body>
 </html>
