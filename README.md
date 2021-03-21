@@ -37,7 +37,6 @@ panzoom(`Selector`, `Options`);
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
   <script type="module">
     import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
     document.addEventListener("DOMContentLoaded", (e) => {
