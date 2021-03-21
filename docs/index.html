@@ -7,7 +7,8 @@
 	<script type="module">
   import {panzoom} from './panzoom.js';
   document.addEventListener("DOMContentLoaded", (e) => {
-    panzoom('#element1', {zoom: false, bound:'none'});
+    panzoom('#element1', {bound:'none'});
+    panzoom('#element2', {bound:'inner'});
   });
 </script>
 </head>
@@ -16,7 +17,7 @@
 	<p>A small ES6 module to add simple panning and zooming functionality to any DOM element. It includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.</p>
 	<p>You can see the main page usage instructions <a href="https://github.com/cmorillas/panzoom">here</a></p>
 	<h2>Example 1</h2>
-	<h3>Simple pan and zoom</h3>
+	<h3>Simple pan and zoom without bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden</p>
 	<pre style="width:200px"><code>
 panzoom('#element', {
@@ -25,6 +26,18 @@ panzoom('#element', {
 	</code></pre>
 	<div id="container1" style="width:400px; height:200px; background-color:green; position:absolute; overflow:hidden">
 		<div id="element1" style="width:50px; height:50px; background-color:red"></div>
+	</div>
+
+	<h2>Example 2</h2>
+	<h3>Simple pan and zoom with inner bounds</h3>
+	<p>The container has style with position:absolute; overflow:hidden</p>
+	<pre style="width:200px"><code>
+panzoom('#element', {
+   bound: 'inner'
+});
+	</code></pre>
+	<div id="container2" style="width:400px; height:200px; background-color:green; position:absolute; overflow:hidden">
+		<div id="element2" style="width:50px; height:50px; background-color:red"></div>
 	</div>
 </body>
 </html>
