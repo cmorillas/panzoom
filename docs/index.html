@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	
+
 	<script type="module">
   import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
   document.addEventListener("DOMContentLoaded", (e) => {
@@ -13,15 +13,16 @@
 	<h1>Panzoom</h1>
 	<p>A small ES6 module to add simple panning and zooming functionality to any DOM element. It includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.</p>
 	<p>You can see the main page usage instructions <a href="https://github.com/cmorillas/panzoom">here</a></p>
-	<h1>Demos</h1>
+	<h1>Example 1</h1>
 	<hr>
 	<pre><code>
-		panzoom('#element', {
-			zoom: false,
-			bound: none
-		});
+panzoom('#element', {
+	zoom: false,
+	bound: none
+});
 	</code></pre>
-
-
+	<div id="container1">
+		<div id="element1"></div>
+	</div>
 </body>
 </html>
