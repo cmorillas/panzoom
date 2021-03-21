@@ -145,9 +145,9 @@ export const panzoom = (selector, options={}) => {
 	}
 
 	function handle_wheel(e) {
-		if(e.target !== e.currentTarget) return;
 		e.preventDefault();
 		e.stopPropagation();
+		if(e.target !== e.currentTarget) return;
 		
 		const deltaScale =  e.wheelDelta*wheel_step/120;
 		doScale(e.target, deltaScale, e.offsetX, e.offsetY);		
