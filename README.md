@@ -33,6 +33,23 @@ panzoom(`Selector`, `Options`);
 | _`scale_max`_ | 0.01 - 20 | 0.01 | maximum zoom |
 
 ## Example
-
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <script type="module">
+    import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+    document.addEventListener("DOMContentLoaded", (e) => {
+      panzoom('#element');
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
+```
+See the above code in action at https://codepen.io/taye/pen/tCKAms
 ## License
-panzoom.js is released under the MIT License.
+panzoom.js is released under the GPL-3.0 License.
