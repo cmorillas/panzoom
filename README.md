@@ -1,39 +1,54 @@
-# Panzoom
-A small library to add as simple as possible panning and zooming functionality to any DOM element. Including cascading containers.
+# Panzoom [![version](https://img.shields.io/badge/version-0.9-yellow.svg)](https://semver.org)
+
+A small ES6 module to add simple panning and zooming functionality to any DOM element. It Includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.
 
 ## Demos
-You can use the [editor on GitHub](https://github.com/cmorillas/test/edit/main/README.md) to maintains and preview the content for your website in Markdown files.
+You can see here some [demos](https://cmorillas.github.io/panzoom/).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Installation
+Import from an ES6 module and initialize after DOMContentLoaded event.
+```html
+<script type="module">
+  import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+  document.addEventListener("DOMContentLoaded", (e) => {
+    panzoom('#element');
+  });
+</script>
 ```
+## Usage
+panzoom(`Selector`, `Options`);
+| Parameter | Type | Description |
+| :---        |:---    |:--- |
+| `Selector` | String | [CSS Selector](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors) |
+| `Options` | Object | Initialization options |
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## Options
+| Name | Possible Values | Default Value | Description |
+| :--- |:---: |:---: |:---|
+| _`pan`_ | true \| false | true | do panning |
+| _`zoom`_ | true \| false | true | do Zooming |
+| _`bound`_ | 'inner' \| 'outer' \| 'none' | 'inner' | containment whitin the parent container |
+| _`wheel_step`_ | 0.01 - 0.4 | 0.2 | mouse wheel speed |
+| _`scale_min`_ | 0.01 - 20 | 0.01 | minimum zoom |
+| _`scale_max`_ | 0.01 - 20 | 0.01 | maximum zoom |
 
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/cmorillas/test/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+## Example
+```html
+<!doctype html>
+<html lang="en">
+<head>
+  <script type="module">
+    import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+    document.addEventListener("DOMContentLoaded", (e) => {
+      panzoom('#element');
+    });
+  </script>
+</head>
+<body>
+  
+</body>
+</html>
+```
+See the above code in action at https://codepen.io/taye/pen/tCKAms
+## License
+panzoom.js is released under the GPL-3.0 License.
