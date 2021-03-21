@@ -1,5 +1,4 @@
-# Panzoom [![version](https://img.shields.io/badge/version-1.0.1-yellow.svg)](https://semver.org)
-[![GitHub version](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version.svg)](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version)
+# Panzoom [![version](https://img.shields.io/badge/version-0.9-yellow.svg)](https://semver.org)
 
 A small ES6 module to add simple panning and zooming functionality to any DOM element. It Includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices.
 
