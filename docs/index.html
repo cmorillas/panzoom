@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/styles/default.min.css">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.1/highlight.min.js"></script>
+	<script>hljs.highlightAll();</script>
 	<script type="module">
   import {panzoom} from './panzoom.js';
   document.addEventListener("DOMContentLoaded", (e) => {
-    panzoom('#element');
+    panzoom('#element1', {zoom: false, bound:'none'});
   });
 </script>
 </head>
@@ -13,16 +15,15 @@
 	<h1>Panzoom</h1>
 	<p>A small ES6 module to add simple panning and zooming functionality to any DOM element. It includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.</p>
 	<p>You can see the main page usage instructions <a href="https://github.com/cmorillas/panzoom">here</a></p>
-	<h1>Example 1</h1>
-	<hr>
+	<h2>Example 1</h2>
 	<pre><code>
 panzoom('#element', {
 	zoom: false,
-	bound: none
+	bound: 'none'
 });
 	</code></pre>
-	<div id="container1">
-		<div id="element1"></div>
+	<div id="container1" style="width:400px; height:200px; background-color:green">
+		<div id="element1" style="width:50px; height:50px; background-color:red"></div>
 	</div>
 </body>
 </html>
