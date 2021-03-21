@@ -1,12 +1,25 @@
 # Panzoom
-A small library to add as simple as possible panning and zooming functionality to any DOM element. Including cascading containers.
+[![GitHub version](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version.svg)](https://badge.fury.io/gh/conventional-changelog%2Fstandard-version)
+A small ES6 module to add simple panning and zooming functionality to any DOM element. It Includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices.
+
+---
 
 ## Demos
-You can use the [editor on GitHub](https://github.com/cmorillas/test/edit/main/README.md) to maintains and preview the content for your website in Markdown files.
+You can see here some [demos](https://cmorillas.github.io/panzoom/).
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
+## Usage
+Import from an ES6 module and initialize after DOMContentLoaded event.
+```html
+<script type="module">
+  import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+  document.addEventListener("DOMContentLoaded", (e) => {
+    panzoom('#element');
+  });
+</script>
+```
+## Options
+`PanzoomOptions`
+panzoom(
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
