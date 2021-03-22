@@ -30,7 +30,7 @@ panzoom(`Selector`, `Options`);
 | _`bound`_ | 'inner' \| 'outer' \| 'none' | 'inner' | containment whitin the parent container |
 | _`wheel_step`_ | 0.01 - 0.4 | 0.2 | mouse wheel speed |
 | _`scale_min`_ | 0.01 - 20 | 0.01 | minimum zoom |
-| _`scale_max`_ | 0.01 - 20 | 0.01 | maximum zoom |
+| _`scale_max`_ | 0.01 - 20 | 10 | maximum zoom |
 
 ## Example
 ```html
