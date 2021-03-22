@@ -85,7 +85,7 @@ export const panzoom = (selector, options={}) => {
 
 		deltaScale *= scaleX;	// Smooth deltaScale 
 
-		let newScale = scaleX + deltaScale;
+		let newScale = scaleX + deltaScale/vvpScale/dprScale;
 		
 		let posX, posY;
 		let maxScaleX,maxScaleY,maxScale;
