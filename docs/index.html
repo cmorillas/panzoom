@@ -9,7 +9,7 @@
   document.addEventListener("DOMContentLoaded", (e) => {
     panzoom('#element1', {bound:'none'});
     panzoom('#element2', {bound:'inner'});
-    panzoom('#element2', {bound:'outer'});
+    panzoom('#element3', {bound:'outer'});
   });
 </script>
 </head>
@@ -26,7 +26,7 @@ panzoom('#element', {
 });
 	</code></pre>
 	<div id="container1" style="width:500px; height:200px; margin:20px; background-color:green; position:relative; overflow:hidden">
-		<div id="element1" style="width:50px; height:50px; background-color:red; font-size:40px; color:white">Zoom<br>This</div>
+		<div id="element1" style="width:50px; height:50px; background-color:red; font-size:12px; color:white">Zoom<br>This</div>
 	</div>
 
 	<h2>Example 2</h2>
@@ -38,7 +38,7 @@ panzoom('#element', {
 });
 	</code></pre>
 	<div id="container2" style="width:400px; height:200px; background-color:green; position:relative; overflow:hidden">
-		<div id="element2" style="width:50px; height:50px; background-color:red; font-size:40px; color:white">Zoom<br>This</div>
+		<div id="element2" style="width:50px; height:50px; background-color:red; font-size:12px; color:white">Zoom<br>This</div>
 	</div>
 
 	<h2>Example 3</h2>
@@ -50,7 +50,7 @@ panzoom('#element', {
 });
 	</code></pre>
 	<div id="container3" style="width:400px; height:200px; background-color:green; position:relative; overflow:hidden">
-		<div id="element3" style="background:url('./background.jpg'); background-size: cover"></div>
+		<div id="element3" style="width:2208px; height:1472px; background:url('./background.jpg'); background-size: cover"></div>
 	</div>
 
 </body>
