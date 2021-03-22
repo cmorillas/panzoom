@@ -10,6 +10,8 @@
     panzoom('#element1', {bound:'none'});
     panzoom('#element2', {bound:'inner'});
     panzoom('#element3', {bound:'outer'});
+    panzoom('#element4', {bound:'outer'});
+    panzoom('#child4', {bound:'inner'});
   });
 </script>
 </head>
@@ -17,6 +19,7 @@
 	<h1>Panzoom</h1>
 	<p>A small ES6 module to add simple panning and zooming functionality to any DOM element. It includes cascading containers and the possibility of bounds (inner or outer). Handle touch events on touch devices. Only for modern borwsers.</p>
 	<p>You can see the main page usage instructions <a href="https://github.com/cmorillas/panzoom">here</a></p>
+	<br>
 	<h2>Example 1</h2>
 	<h3>Simple pan and zoom without bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
@@ -29,6 +32,7 @@ panzoom('#element', {
 		<div id="element1" style="width:50px; height:50px; background-color:red; font-size:12px; color:white">Zoom<br>This</div>
 	</div>
 
+	<br>
 	<h2>Example 2</h2>
 	<h3>Simple pan and zoom with inner bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
@@ -41,6 +45,7 @@ panzoom('#element', {
 		<div id="element2" style="width:50px; height:50px; background-color:red; font-size:12px; color:white">Zoom<br>This</div>
 	</div>
 
+	<br>
 	<h2>Example 3</h2>
 	<h3>Simple pan and zoom with outer bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
@@ -51,6 +56,21 @@ panzoom('#element', {
 	</code></pre>
 	<div id="container3" style="width:800px; height:400px; background-color:green; position:relative; overflow:hidden">
 		<div id="element3" style="width:1400px; height:975px; background:url('./background.jpg'); background-size: cover"></div>
+	</div>
+
+	<br>
+	<h2>Example 4</h2>
+	<h3>Multiple Containers</h3>
+	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
+	<pre style="width:400px; font-size: 24px"><code>
+panzoom('#element', {
+   bound: 'outer'
+});
+	</code></pre>
+	<div id="container4" style="width:800px; height:400px; background-color:green; position:relative; overflow:hidden">
+		<div id="element4" style="width:1400px; height:975px; background:url('./background.jpg'); background-size: cover">
+			<div id="child4" style="width:50px; height:50px; background-color:red; font-size:12px; color:white">Zoom<br>This</div>
+		</div>
 	</div>
 
 </body>
