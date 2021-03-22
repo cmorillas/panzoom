@@ -19,12 +19,12 @@
 	<h2>Example 1</h2>
 	<h3>Simple pan and zoom without bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
-	<pre style="width:200px"><code style="font-size: 24px">
+	<pre style="width:200px; font-size: 24px"><code>
 panzoom('#element', {
    bound: 'none'
 });
 	</code></pre>
-	<div id="container1" style="width:100%; height:400px; margin:20px; background-color:green; position:relative; overflow:hidden">
+	<div id="container1" style="width:100%; height:400px; padding:20px; background-color:green; position:relative; overflow:hidden">
 		<div id="element1" style="width:100px; height:100px; background-color:red"></div>
 	</div>
 
