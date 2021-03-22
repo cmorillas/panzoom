@@ -9,6 +9,7 @@
   document.addEventListener("DOMContentLoaded", (e) => {
     panzoom('#element1', {bound:'none'});
     panzoom('#element2', {bound:'inner'});
+    panzoom('#element2', {bound:'outer'});
   });
 </script>
 </head>
@@ -38,5 +39,19 @@ panzoom('#element', {
 	</code></pre>
 	<div id="container2" style="width:400px; height:200px; background-color:green; position:absolute; overflow:hidden">
 		<div id="element2" style="width:50px; height:50px; background-color:red; font-size:40px; color:white">Zoom<br>This</div>
+	</div>
+
+	<h2>Example 3</h2>
+	<h3>Simple pan and zoom with outer bounds</h3>
+	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
+	<pre style="width:200px"><code>
+panzoom('#element', {
+   bound: 'inner'
+});
+	</code></pre>
+	<div id="container3" style="width:400px; height:200px; background-color:green; position:absolute; overflow:hidden">
+		<div id="element3" style="background:url('./background.jpg'); background-size: cover"></div>
+	</div>
+
 </body>
 </html>
