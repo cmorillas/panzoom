@@ -260,10 +260,10 @@ export const panzoom = (selector, options={}) => {
 			const matrix = new WebKitCSSMatrix(getComputedStyle(e.target).getPropertyValue("transform"));
 			const {a:scaleX, b:skewY, c:skewX, d:scaleY, e:translateX, f:translateY} = matrix;			
 
-			const offsetX0 = (e.touches[0].clientX-x)/width*e.target.offsetWidth;
-			const offsetY0 = (e.touches[0].clientY-y)/height*e.target.offsetHeight;
-			const offsetX1 = (e.touches[1].clientX-x)/width*e.target.offsetWidth;
-			const offsetY1 = (e.touches[1].clientY-y)/height*e.target.offsetHeight;
+			const offsetX0 = (e.touches[0].pageX-x)/width*e.target.offsetWidth;
+			const offsetY0 = (e.touches[0].pageY-y)/height*e.target.offsetHeight;
+			const offsetX1 = (e.touches[1].pageX-x)/width*e.target.offsetWidth;
+			const offsetY1 = (e.touches[1].pageY-y)/height*e.target.offsetHeight;
 			
 			const offsetX = offsetX0+(offsetX1-offsetX0)/2;
 			const offsetY = offsetY0+(offsetY1-offsetY0)/2;	
