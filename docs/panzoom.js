@@ -119,8 +119,7 @@ export const panzoom = (selector, options={}) => {
 			minScaleX = widthp/elem.offsetWidth;
 			minScaleY = heightp/elem.offsetHeight;
 			minScale = Math.max(minScaleX, minScaleY, scale_min);
-			if (newScale<minScale) deltaScale=0;
-			newScale = Math.max(Math.min(scale_max, newScale), minScale);
+			if (newScale<minScale || newScale > scale_max) return; //deltaScale=0;
 			//posX = elem.offsetWidth/2*(newScale-1)+offsetX/elem.offsetWidth*(elem.parentNode.offsetWidth-elem.offsetWidth) - offsetX*(newScale-1);
 			//posY = elem.offsetHeight/2*(newScale-1)+offsetY/elem.offsetHeight*(elem.parentNode.offsetHeight-elem.offsetHeight) - offsetY*(newScale-1);
 		}
@@ -147,9 +146,9 @@ export const panzoom = (selector, options={}) => {
 			posX_max = elem.offsetWidth/2*(newScale-1)-translateX;
 			posY_max = elem.offsetHeight/2*(newScale-1)-translateY;
 			posX_min = elem.parentNode.offsetWidth-elem.offsetWidth-elem.offsetWidth/2*(newScale-1)-translateX;
-			posY_min = elem.parentNode.offsetHeight-elem.offsetHeight-elem.offsetHeight/2*(newScale-1)-translateY;			
-			posX = Math.max(Math.min(posX_max, posX), posX_min);		// Restrict
-			posY = Math.max(Math.min(posY_max, posY), posY_min);		// Restrict
+			posY_min = elem.parentNode.offsetHeight-elem.offsetHeight-elem.offsetHeight/2*(newScale-1)-translateY;
+			posX = Math.min(Math.max(posX_min, posX), posX_max);		// Restrict
+			posY = Math.min(Math.max(posY_min, posY), posY_max);		// Restrict
 		}
 		else if(bound=='none') {
 
@@ -248,10 +247,10 @@ export const panzoom = (selector, options={}) => {
 	}
 
 	function handle_touchmove(e) {
+		status.innerHTML = e.changedTouches[0].identifier;
 		if(e.target !== e.currentTarget) return;
 		// Check if two fingers touched screen. If so, handle Zoom
-		if(e.targetTouches.length == 2 && e.changedTouches.length == 2) {
-			
+		if(e.targetTouches.length == 2 && e.changedTouches.length == 2) {			
 			const distX = e.touches[0].pageX - e.touches[1].pageX;
 			const distY = e.touches[0].pageY - e.touches[1].pageY;
 			const pinch_dist2 = Math.hypot(	distX,distY); //get rough estimation of new distance between fingers
@@ -268,11 +267,11 @@ export const panzoom = (selector, options={}) => {
 			const offsetY1 = (e.touches[1].pageY-y)/height*e.target.offsetHeight;
 			
 			const offsetX = offsetX0+(offsetX1-offsetX0)/2;
-			const offsetY = offsetY0+(offsetY1-offsetY0)/2;			
+			const offsetY = offsetY0+(offsetY1-offsetY0)/2;	
 
 			do_zoom(e.target, deltaScale, offsetX, offsetY);
 		}
-		else if(e.targetTouches.length == 1){
+		else if(e.targetTouches.length == 1 && !isPinching){
 			const deltaX = (e.touches[0].pageX-lastTouchX)/parentScale;		// vvpScale It's pinch default gesture zoom (Android). Ignore in Desktop
 			const deltaY = (e.touches[0].pageY-lastTouchY)/parentScale;		//
 			lastTouchX = e.touches[0].pageX;
@@ -284,7 +283,10 @@ export const panzoom = (selector, options={}) => {
 	}
 
 	function handle_touchend(e) {
-		if(e.targetTouches.length==0) isTouching = false;
+		if(e.targetTouches.length==0) {
+			isTouching = false;
+			isPinching = false;
+		}
 	}
 
 	function handle_wheel(e) {
