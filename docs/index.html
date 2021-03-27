@@ -47,14 +47,14 @@ panzoom('#element2', {
 
 	<br>
 	<h2>Example 3</h2>
-	<h3>Simple pan and zoom with outer boundss</h3>
+	<h3>Simple pan and zoom with outer bounds</h3>
 	<p>The container has style with position:absolute; overflow:hidden; touch-action:none;</p>
 	<pre style="width:400px; font-size: 24px"><code>
 panzoom('#element3', {
    bound: 'outer'
 });
 	</code></pre>
-	<div style="position:relative;">
+	<div style="position:relative; display: block;">
 	<div id="container3" style="width:800px; height:400px; background-color:green; position:absolute; overflow:hidden">
 		<div id="element3" style="width:1400px; height:975px; background:url('./background.jpg'); background-size: cover"></div>
 	</div>
