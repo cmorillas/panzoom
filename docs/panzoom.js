@@ -247,7 +247,6 @@ export const panzoom = (selector, options={}) => {
 	}
 
 	function handle_touchmove(e) {
-		let status = document.querySelector("#status");
 		if(e.target !== e.currentTarget) return;
 		// Check if two fingers touched screen. If so, handle Zoom
 		if(e.targetTouches.length == 2 && e.changedTouches.length == 2) {			
