@@ -257,8 +257,8 @@ export const panzoom = (selector, options={}) => {
 			pinch_dist1 = pinch_dist2;
 
 			const {x, y, width, height} = e.target.getBoundingClientRect();
-			const matrix = new WebKitCSSMatrix(getComputedStyle(e.target).getPropertyValue("transform"));
-			const {a:scaleX, b:skewY, c:skewX, d:scaleY, e:translateX, f:translateY} = matrix;			
+			//const matrix = new WebKitCSSMatrix(getComputedStyle(e.target).getPropertyValue("transform"));
+			//const {a:scaleX, b:skewY, c:skewX, d:scaleY, e:translateX, f:translateY} = matrix;			
 
 			const offsetX0 = (e.touches[0].pageX-x)/width*e.target.offsetWidth;
 			const offsetY0 = (e.touches[0].pageY-y)/height*e.target.offsetHeight;
