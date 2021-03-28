@@ -267,7 +267,7 @@ export const panzoom = (selector, options={}) => {
 			//status.innerHTML = e.touches[0].pageX + ' '+x;
 			const offsetX = offsetX0+(offsetX1-offsetX0)/2;
 			const offsetY = offsetY0+(offsetY1-offsetY0)/2;	
-			status.innerHTML = e.touches[0].pageY+' '+height+' '+e.target.offsetHeight;
+			status.innerHTML = e.touches[0].pageY+' '+y+' '+e.target.offsetHeight;
 			do_zoom(e.target, deltaScale, offsetX, offsetY);
 		}
 		else if(e.targetTouches.length == 1 && !isPinching){
