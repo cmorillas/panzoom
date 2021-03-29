@@ -9,7 +9,7 @@ You can see here some [demos](https://cmorillas.github.io/panzoom/).
 Import from an ES6 module and initialize after DOMContentLoaded event.
 ```html
 <script type="module">
-  import {panzoom} from 'https://github.com/cmorillas/panzoom/src/panzoom.js';
+  import {panzoom} from 'https://cdn.jsdelivr.net/gh/cmorillas/panzoom/src/panzoom.js';
   document.addEventListener("DOMContentLoaded", (e) => {
     panzoom('#element');
   });
