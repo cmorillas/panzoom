@@ -253,7 +253,8 @@ export const panzoom = (selector, options={}) => {
 			const pinch_dist2 = Math.hypot(distX,distY); //get rough estimation of new distance between fingers
 			const deltaScale = (pinch_dist2-pinch_dist1)/50;
 			pinch_dist1 = pinch_dist2;
-			if(deltaScale > 10) {		// Is a pinch/zoom
+			alert(deltaScale);
+			if(deltaScale > 1) {		// Is a pinch/zoom
 				const {x, y, width, height} = e.target.getBoundingClientRect();
 				const offsetX0 = (e.touches[0].clientX-x)/width*e.target.offsetWidth;
 				const offsetY0 = (e.touches[0].clientY-y)/height*e.target.offsetHeight;
