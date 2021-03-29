@@ -250,23 +250,29 @@ export const panzoom = (selector, options={}) => {
 		if(e.targetTouches.length == 2 && e.changedTouches.length == 2) {			
 			const distX = e.touches[0].pageX - e.touches[1].pageX;
 			const distY = e.touches[0].pageY - e.touches[1].pageY;
-			const pinch_dist2 = Math.hypot(	distX,distY); //get rough estimation of new distance between fingers
+			const pinch_dist2 = Math.hypot(distX,distY); //get rough estimation of new distance between fingers
 			const deltaScale = (pinch_dist2-pinch_dist1)/50;
 			pinch_dist1 = pinch_dist2;
+			if(deltaScale > 300) {		// Is a pinch/zoom
+				const {x, y, width, height} = e.target.getBoundingClientRect();
+				const offsetX0 = (e.touches[0].clientX-x)/width*e.target.offsetWidth;
+				const offsetY0 = (e.touches[0].clientY-y)/height*e.target.offsetHeight;
+				const offsetX1 = (e.touches[1].clientX-x)/width*e.target.offsetWidth;
+				const offsetY1 = (e.touches[1].clientY-y)/height*e.target.offsetHeight;
+				const offsetX = offsetX0+(offsetX1-offsetX0)/2;
+				const offsetY = offsetY0+(offsetY1-offsetY0)/2;	
 
-			const {x, y, width, height} = e.target.getBoundingClientRect();
-			//const matrix = new WebKitCSSMatrix(getComputedStyle(e.target).getPropertyValue("transform"));
-			//const {a:scaleX, b:skewY, c:skewX, d:scaleY, e:translateX, f:translateY} = matrix;			
+				do_zoom(e.target, deltaScale, offsetX, offsetY);
+			}
+			else {						// It is a pan 
+				const deltaX = (e.touches[0].pageX-lastTouchX)/parentScale;		// vvpScale It's pinch default gesture zoom (Android). Ignore in Desktop
+				const deltaY = (e.touches[0].pageY-lastTouchY)/parentScale;		//
+				lastTouchX = e.touches[0].pageX;
+				lastTouchY = e.touches[0].pageY;
+				// Else, it is a drag. Handle with pointermouse event
 
-			const offsetX0 = (e.touches[0].clientX-x)/width*e.target.offsetWidth;
-			const offsetY0 = (e.touches[0].clientY-y)/height*e.target.offsetHeight;
-			const offsetX1 = (e.touches[1].clientX-x)/width*e.target.offsetWidth;
-			const offsetY1 = (e.touches[1].clientY-y)/height*e.target.offsetHeight;
-			//status.innerHTML = e.touches[0].pageX + ' '+x;
-			const offsetX = offsetX0+(offsetX1-offsetX0)/2;
-			const offsetY = offsetY0+(offsetY1-offsetY0)/2;	
-
-			do_zoom(e.target, deltaScale, offsetX, offsetY);
+				do_move(e.target, deltaX, deltaY);
+			}			
 		}
 		else if(e.targetTouches.length == 1 && !isPinching){
 			const deltaX = (e.touches[0].pageX-lastTouchX)/parentScale;		// vvpScale It's pinch default gesture zoom (Android). Ignore in Desktop
