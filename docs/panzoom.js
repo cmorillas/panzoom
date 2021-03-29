@@ -254,7 +254,7 @@ export const panzoom = (selector, options={}) => {
 			const deltaScale = (pinch_dist2-pinch_dist1)/50;
 			pinch_dist1 = pinch_dist2;
 			alert(deltaScale);
-			if(deltaScale > 1) {		// Is a pinch/zoom
+			if(deltaScale > 0) {		// Is a pinch/zoom
 				const {x, y, width, height} = e.target.getBoundingClientRect();
 				const offsetX0 = (e.touches[0].clientX-x)/width*e.target.offsetWidth;
 				const offsetY0 = (e.touches[0].clientY-y)/height*e.target.offsetHeight;
